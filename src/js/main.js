@@ -16,9 +16,7 @@ const controlsGap = 0.1 * floorHeight; //in vh
 const controlsBorderRadius = 15; // in px
 const floorNumHeight = controlsVerticalPad;
 const floorNumWidth = controlsWidth;
-const singleControlUp = 0;
-const singleControlBot = 0;
-const customTopGap = 50; //in vh
+const customTopGap = 20; //in vh
 const customBottomGap = 0; //in vh
 const doorWidth = 0.4 * liftWidth;
 const doorHeight = 0.9 * liftHeight;
@@ -30,12 +28,15 @@ let doorDelay = 700;
 let liftTravelRate = 0.1;
 let liftTimeout = 10;
 let translateDistance = 0.1;
+
+// CALCULATED VARIABLES
 var floorWidth = 0; //in vw
 var bgWidth = 0; //in vw
 var bgHeight = 0; //in vh
 var numFloors = 0;
 var numLifts = 0;
 
+// FLAGS
 let gateClose = 1;
 let gateOpen = 0;
 
@@ -47,7 +48,7 @@ const controlsTopColor = "orchid";
 const controlsBotColor = "orange";
 const doorColor = "whitesmoke";
 
-//
+// Object to capture liftState
 /**
  * { status: 0, currentFloor: 0, targetFloor: 0 };
  * Object stored in liftState
@@ -211,6 +212,44 @@ function renderBuilding() {
   }
 }
 
+function renderInputs() {
+  var bg = document.getElementById("bg-div");
+  let text1 = document.createElement("h1");
+  text1.setAttribute("id", "Floors");
+  text1.innerText = "Floors";
+  bg.appendChild(text1);
+  let inp1 = document.createElement("input");
+  inp1.setAttribute("class", "input");
+  inp1.setAttribute("id", "Flr");
+  inp1.type = "number";
+  inp1.placeholder = "Number of Floors";
+  bg.appendChild(inp1);
+  let text2 = document.createElement("h1");
+  text2.setAttribute("id", "Lifts");
+  text2.innerText = "Lifts";
+  bg.appendChild(text2);
+  let inp2 = document.createElement("input");
+  inp2.setAttribute("class", "input");
+  inp2.setAttribute("id", "Lft");
+  inp2.type = "number";
+  inp2.placeholder = "Number of Lifts";
+  bg.appendChild(inp2);
+  let but = document.createElement("button");
+  but.setAttribute("class", "main-but");
+  but.setAttribute("id", "main-but");
+  but.innerText = "BUILD";
+  bg.appendChild(but);
+  document.getElementById("main-but").addEventListener("click", function () {
+    numFloors = parseInt(document.getElementById("Flr").value, 10) || 0;
+    numLifts = parseInt(document.getElementById("Lft").value, 10) || 0;
+    console.log(numFloors, numLifts);
+    var element = document.getElementById("bg-div");
+    element.innerHTML = "";
+    renderInputs();
+    renderBuilding();
+  });
+}
+// LIFT CONTROLLERS
 function findLift(floorNum, directionOfCall) {
   var i = 0;
   while (i < numLifts) {
@@ -310,8 +349,6 @@ function openGate(liftId) {
   }, gateTimeout);
 }
 
-numFloors = prompt("Enter Number of Floors");
-numLifts = prompt("Enter Number of Lifts");
-console.log(numFloors, numLifts);
-// Make a input section which will take inputs of floors and lifts and remove prompt box
+// MAIN
+renderInputs();
 renderBuilding();

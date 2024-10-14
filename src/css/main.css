@@ -5,8 +5,69 @@ body{
 .background-div{
     position: relative;
     box-sizing: border-box; /* makes the child with border and padding inside the parent [Ref: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing] */ 
+    display: flex-box;
     min-height: 101vh;
     min-width: 100vw;
+}
+.input#Flr{
+    position: absolute;
+    width: 20vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    top: 10vh;
+    left: 29vw;
+}
+.input#Lft{
+    position: absolute;
+    width: 20vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    top: 10vh;
+    left: 58vw;
+}
+.input#Flr:focus{
+    border: 3px solid #555;
+}
+.input#Lft:focus{
+    border: 3px solid #555;
+}
+h1#Floors{
+    position: absolute;
+    top: 9vh;
+    left: 20vw;
+}
+h1#Lifts{
+    position: absolute;
+    top: 9vh;
+    left: 51vw;
+}
+.main-but{
+    position: absolute;
+    top: 10vh;
+    left: 82vw;
+    background-color: green; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 15px;
 }
 .dem-floor{
     display: flex;
@@ -30,6 +91,7 @@ body{
     position: absolute;
     text-align: center;
     font-weight: bolder;
+    cursor: pointer;
 }
 .door{
     display: flex;
