@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.background-div{
+    position: relative;
+    box-sizing: border-box; /* makes the child with border and padding inside the parent [Ref: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing] */ 
+    min-height: 101vh;
+    min-width: 100vw;
+}
+.dem-floor{
+    display: flex;
+    position: absolute;
+    min-width: 70vw;
+}
+.dem-floor-num{
+    display: flex-box;
+    position: absolute;
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: underline;
+    
+}
+.dem-lift{
+    display: flex;
+    position: absolute;
+}
+.dem-controls{
+    display: flex-box;
+    position: absolute;
+    text-align: center;
+    font-weight: bolder;
+}
+.door{
+    display: flex;
+    position: absolute;
+    transform: scaleX(1);
+}
