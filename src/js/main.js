@@ -1,4 +1,4 @@
-// FIXED VALUES in vw and vh
+// SET VALUES in vw and vh
 const liftWidth = 10; //in vw
 const floorHeight = 20; //in vh
 const liftHeight = floorHeight * 0.9; //in vh
